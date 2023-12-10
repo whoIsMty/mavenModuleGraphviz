@@ -2,10 +2,6 @@ from enum import Enum
 
 
 class ModuleTypeEnum(Enum):
-    remark = None
-    index = None
-    code = None
-
     NORMAL = (1, "normal", "")
     CONTAINER = (2, "container", "")
 
@@ -13,3 +9,12 @@ class ModuleTypeEnum(Enum):
         self.index = index
         self.code = code
         self.remark = remark
+
+    def getIndex(self):
+        return self.index
+
+    def getCode(self):
+        return self.code
+
+    def getRemark(self):
+        return self.remark

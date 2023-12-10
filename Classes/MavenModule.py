@@ -6,10 +6,14 @@ class MavenModule(ABC):
     moduleGroup = ""
     moduleVersion = ""
 
-    def __init__(self, moduleName, moduleGroup, moduleVersion):
-        self.moduleVersion = moduleVersion
+    def __init__(self, moduleName, moduleVersion=None, moduleGroup=None):
+        if not moduleName:
+            raise Exception(f"要初始化一个MavenModule一定要有moduleName，初始化时检查出为空。moduleName:{moduleName}")
+        if moduleVersion:
+            self.moduleVersion = moduleVersion
+        if not moduleGroup:
+            self.moduleGroup = moduleGroup
         self.moduleName = moduleName
-        self.moduleGroup = moduleGroup
 
     @abstractmethod
     def analyzeDepencyTree(self):

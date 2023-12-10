@@ -1,9 +1,8 @@
 from abc import ABC
+from Classes.MavenModule import MavenModule
 
-from MavenModule import MavenModule
 
-
-class ContainerMavenModule(MavenModule, ABC):
+class ContainerMavenModule(MavenModule):
     parentModule = None
     dependencies = []
     childModules = []
@@ -21,3 +20,6 @@ class ContainerMavenModule(MavenModule, ABC):
 
     def setChildModules(self, childModules: list):
         self.childModules = childModules
+
+    def analyzeDepencyTree(self):
+        pass
